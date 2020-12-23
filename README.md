@@ -65,7 +65,23 @@ torch (for BER0, koElectra, Electra model)
    tokenizer = AutoTokenizer.from_pretrained("monologg/koelectra-base-v3-discriminator")
    tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
    ```
-
+   
+ 5. 구해진 token을 숫자 값으로 indexing 하고, maxlen을 이용해 padding 진행, 그리고 attention_masks를 설정   
+ 6. 학습을 위해 torch tensor 형태로 모든 데이터들을 변환  
+ 7. 4,5작업 test데이터에 동일 반복  
+ 8. labels에 train data의 label을 저장  
+ 9. GPU 이용 가능 확인(코랩 GPU 이용)  
+ 10. pretrained 된 모델을 model에 불러오기
+   ```
+   # 분류를 위한 BERT 모델 생성
+   model = BertForSequenceClassification.from_pretrained("bert-base-multilingual-cased", num_labels=2)
+   model.cuda()
+ 
+   ```
+   # 분류를 위한 koelectra_v3 모델 생성
+   model = ElectraForSequenceClassification.from_pretrained("monologg/koelectra-base-v3-discriminator")
+   model.cuda()
+   ``` 
 
 json 파일 읽은 후, 3파일 모두 cleaning 함수를 통해 아래 과정 진행 후 train, dev는 train_data에 저장 test는 test_data에 저장
 영어 이외 data re 패키지를 이용해 제거
