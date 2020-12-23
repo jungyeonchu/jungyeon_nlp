@@ -82,6 +82,15 @@ torch (for BER0, koElectra, Electra model)
    model = ElectraForSequenceClassification.from_pretrained("monologg/koelectra-base-v3-discriminator")
    model.cuda()
    ``` 
+11. optimizer, epoch등 하이퍼파라미터, scheduler등 설정  
+12. traing 진행  
+13. kaggle 데이터를 불러온 후 정제  
+14. kaggle 데이터 예측실행 함수 정의  
+15. kaggle 데이터 예측   
+16. kaggle 데이터 예측 결과 dataframe 생성  
+
+
+
 
 json 파일 읽은 후, 3파일 모두 cleaning 함수를 통해 아래 과정 진행 후 train, dev는 train_data에 저장 test는 test_data에 저장
 영어 이외 data re 패키지를 이용해 제거
