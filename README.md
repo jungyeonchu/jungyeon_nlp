@@ -85,7 +85,7 @@ torch (for BERT, koElectra, Electra model)
    model.cuda()
    ```   
 11. optimizer, epoch등 하이퍼파라미터, scheduler등 설정  
-12. traing 진행  
+12. Training,validation 진행  
 13. kaggle 데이터를 불러온 후 정제  
 14. kaggle 데이터 예측실행 함수 정의  
 15. kaggle 데이터 예측   
@@ -137,7 +137,7 @@ torch (for BERT, koElectra, Electra model)
    model.cuda()
    ```   
 9. optimizer, epoch등 하이퍼파라미터, scheduler등 설정  
-10. traing 진행    
+10. Training,validation 진행     
 11. kaggle 데이터 예측실행 함수 정의  
 12. kaggle 데이터 예측   
 13. kaggle 데이터 예측 결과 dataframe 생성  
