@@ -72,16 +72,16 @@ torch (for BER0, koElectra, Electra model)
  8. labels에 train data의 label을 저장  
  9. GPU 이용 가능 확인(코랩 GPU 이용)  
  10. pretrained 된 모델을 model에 불러오기
-   ```
-   # 분류를 위한 BERT 모델 생성
-   model = BertForSequenceClassification.from_pretrained("bert-base-multilingual-cased", num_labels=2)
-   model.cuda()
-   ```
-   ```
-   #분류를 위한 koelectra_v3 모델 생성
-   model = ElectraForSequenceClassification.from_pretrained("monologg/koelectra-base-v3-discriminator")
-   model.cuda()
-   ``` 
+    ```
+    # 분류를 위한 BERT 모델 생성
+    model = BertForSequenceClassification.from_pretrained("bert-base-multilingual-cased", num_labels=2)
+    model.cuda()
+    ```
+    ```
+    #분류를 위한 koelectra_v3 모델 생성
+    model = ElectraForSequenceClassification.from_pretrained("monologg/koelectra-base-v3-discriminator")
+    model.cuda()
+    ```   
 11. optimizer, epoch등 하이퍼파라미터, scheduler등 설정  
 12. traing 진행  
 13. kaggle 데이터를 불러온 후 정제  
