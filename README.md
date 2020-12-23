@@ -14,6 +14,12 @@ https://github.com/jiwonny/nlp_emotion_classification/blob/master/friends_electr
 https://m.blog.naver.com/PostView.nhn?blogId=qbxlvnf11&logNo=221434157182&proxyReferer=https:%2F%2Fwww.google.com%2F  
 https://wikidocs.net/44249  
 
+
+## Dataset information  
+Freinds 대사 감정분석을 하는 Bert와 ELECTRA 모델의 경우 'frineds_train', 'frined_dev' 를 train 으로 'frineds_test' 를 test set 으로 설정했습니다.   
+각 데이터셋의 경우 발화(utterance) (최대길이 = maxlen) 와 그에 해당하는 감정 라벨이 주어집니다.  
+
+
 1. 리스트1
 # 10. 코드블럭 추가하기
 
