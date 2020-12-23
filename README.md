@@ -76,9 +76,9 @@ torch (for BER0, koElectra, Electra model)
    # 분류를 위한 BERT 모델 생성
    model = BertForSequenceClassification.from_pretrained("bert-base-multilingual-cased", num_labels=2)
    model.cuda()
- 
    ```
-   # 분류를 위한 koelectra_v3 모델 생성
+   ```
+   #분류를 위한 koelectra_v3 모델 생성
    model = ElectraForSequenceClassification.from_pretrained("monologg/koelectra-base-v3-discriminator")
    model.cuda()
    ``` 
