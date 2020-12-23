@@ -2,7 +2,7 @@
 #BERT와 koELECTRA 활용하여 네이버 영화리뷰 긍정/부정 분석
 #BERT와 ELECTRA 활용하여 freinds 대사 감정 분석 
 
-참고 사이트
+참고 사이트  
 https://www.secmem.org/blog/2020/07/19/Sentiment-Analysis/  
 http://aidev.co.kr/chatbotdeeplearning/8709  
 https://github.com/monologg/KoELECTRA  
