@@ -43,12 +43,28 @@ torch (for BER0, koElectra, Electra model)
 2. 데이터 불러와서 raitings_train은 train, ratings_test는 test 데이터로 저장
 3. CleanText함수로 데이터 정제  
 4. 정제된 문장을 bert 또는 koelectra tokenizer를 사용해 토큰으로 분리하기 위해 문장 편집   
-   (앞에 [CLS] , 뒤에 [SEP] 을 달아줍니다. cls : classification , sep : 문장 구분) 후, token으로 분리  
+    앞에 [CLS] , 뒤에 [SEP] 을 달아줌. cls : classification , sep : 문장 구분 
+   
    ```
    #모델에 맞게 형식 변환  
-   sentences = ["[CLS] " + str(sentence) + " [SEP]" for sentence in clean_sentence]
+  sentences = ["[CLS] " + str(sentence) + " [SEP]" for sentence in clean_sentence]
    ```
  
+   버트 토크나이저 실행
+   
+   ```
+   #bert_base-mulmultilingual-cased 토크나이저 실행 
+  tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased', do_lower_case=False)
+  tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
+   ```
+   
+   코일렉트라 토크나이저 실행
+   
+   ```
+   # koelectra-base-v3-discriminator토크나이저 실행
+  tokenizer = AutoTokenizer.from_pretrained("monologg/koelectra-base-v3-discriminator")
+  tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
+   ```
 
 
 json 파일 읽은 후, 3파일 모두 cleaning 함수를 통해 아래 과정 진행 후 train, dev는 train_data에 저장 test는 test_data에 저장
