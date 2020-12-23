@@ -90,6 +90,76 @@ torch (for BER0, koElectra, Electra model)
 16. kaggle 데이터 예측 결과 dataframe 생성  
 
 
+# friends  실행 
+1. 필요한 package 모두 import  
+2. kaggle 연동하여 test 데이터 불러오기 
+3. friends.json데이터 불러와서 train, dev는 train_data에 저장 kaggle 불러온 데이터는 test_data에 저장  
+4. train 데이터 전처리 함수 정의 
+   라벨추출, bert 또는 koelectra tokenizer를 사용해 토큰으로 분리하기 위해 문장 편집  
+   어텐션 마스크 초기화 및 어텐션 마스크를 패딩이 아니면 1, 패딩이면 0으로 설정 
+   ```
+   #라벨추출 
+   labels = data['emotion'].values
+   encoder.fit(labels)
+   labels = encoder.transform(labels)
+   #electra large로 토크나이징
+   tokenizer = ElectraTokenizer.from_pretrained('google/electra-large-discriminator')
+   tokenized_texts = [tokenizer.tokenize(utterance) for utterance in utterances]
+   ```
+5. t 데이터 전처리 함수 정의 
+   라벨추출, bert 또는 koelectra tokenizer를 사용해 토큰으로 분리하기 위해 문장 편집  
+   어텐션 마스크 초기화 및 어텐션 마스크를 패딩이 아니면 1, 패딩이면 0으로 설정     
+5.    
+4. 정제된 문장을 bert 또는 koelectra tokenizer를 사용해 토큰으로 분리하기 위해 문장 편집   
+    앞에 [CLS] , 뒤에 [SEP] 을 달아줌. cls : classification , sep : 문장 구분 
+   
+   ```
+   #모델에 맞게 형식 변환  
+   sentences = ["[CLS] " + str(sentence) + " [SEP]" for sentence in clean_sentence]
+   ```
+ 
+   버트 토크나이저 실행
+   
+   ```
+   #bert_base-mulmultilingual-cased 토크나이저 실행 
+   tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased', do_lower_case=False)
+   tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
+   ```
+   
+   코일렉트라 토크나이저 실행
+   
+   ```
+   # koelectra-base-v3-discriminator토크나이저 실행
+   tokenizer = AutoTokenizer.from_pretrained("monologg/koelectra-base-v3-discriminator")
+   tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
+   ```
+   
+ 5. 구해진 token을 숫자 값으로 indexing 하고, maxlen을 이용해 padding 진행, 그리고 attention_masks를 설정   
+ 6. 학습을 위해 torch tensor 형태로 모든 데이터들을 변환  
+ 7. 4,5작업 test데이터에 동일 반복  
+ 8. labels에 train data의 label을 저장  
+ 9. GPU 이용 가능 확인(코랩 GPU 이용)  
+ 10. pretrained 된 모델을 model에 불러오기
+   ```
+   # 분류를 위한 BERT 모델 생성
+   model = BertForSequenceClassification.from_pretrained("bert-base-multilingual-cased", num_labels=2)
+   model.cuda()
+   ```
+   ```
+   #분류를 위한 koelectra_v3 모델 생성
+   model = ElectraForSequenceClassification.from_pretrained("monologg/koelectra-base-v3-discriminator")
+   model.cuda()
+   ```   
+11. optimizer, epoch등 하이퍼파라미터, scheduler등 설정  
+12. traing 진행  
+13. kaggle 데이터를 불러온 후 정제  
+14. kaggle 데이터 예측실행 함수 정의  
+15. kaggle 데이터 예측   
+16. kaggle 데이터 예측 결과 dataframe 생성  
+
+
+
+
 
 
 json 파일 읽은 후, 3파일 모두 cleaning 함수를 통해 아래 과정 진행 후 train, dev는 train_data에 저장 test는 test_data에 저장
