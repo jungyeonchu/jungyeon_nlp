@@ -47,23 +47,23 @@ torch (for BER0, koElectra, Electra model)
    
    ```
    #모델에 맞게 형식 변환  
-  sentences = ["[CLS] " + str(sentence) + " [SEP]" for sentence in clean_sentence]
+   sentences = ["[CLS] " + str(sentence) + " [SEP]" for sentence in clean_sentence]
    ```
  
    버트 토크나이저 실행
    
    ```
    #bert_base-mulmultilingual-cased 토크나이저 실행 
-  tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased', do_lower_case=False)
-  tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
+   tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased', do_lower_case=False)
+   tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
    ```
    
    코일렉트라 토크나이저 실행
    
    ```
    # koelectra-base-v3-discriminator토크나이저 실행
-  tokenizer = AutoTokenizer.from_pretrained("monologg/koelectra-base-v3-discriminator")
-  tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
+   tokenizer = AutoTokenizer.from_pretrained("monologg/koelectra-base-v3-discriminator")
+   tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
    ```
 
 
