@@ -14,11 +14,26 @@ https://github.com/jiwonny/nlp_emotion_classification/blob/master/friends_electr
 https://m.blog.naver.com/PostView.nhn?blogId=qbxlvnf11&logNo=221434157182&proxyReferer=https:%2F%2Fwww.google.com%2F  
 https://wikidocs.net/44249  
 
+## 실행환경
+클라우드 서버와 GPU를 제공받는 google colab 에서 진행  
+런타임 유형 하드웨어 가속기 : GPU Tesla V100-SXM2  
 
-## Dataset information  
-Freinds 대사 감정분석을 하는 Bert와 ELECTRA 모델의 경우 'frineds_train', 'frined_dev' 를 train 으로 'frineds_test' 를 test set 으로 설정했습니다.   
+## Dataset information 
+Naver 영화 리뷰는 git clone https://github.com/e9t/nsmc.git 에서 다운받아 이용했습니다.   
+nsmc/ratings_train.txt를 train set으로 nsmc/ratings_test.txt를  test set으로 설정했습니다.  
+영화리뷰는 긍정/부정에 따라 라벨이 주어집니다.   
+Freinds 대사 감정분석 모델의 경우 'frineds_train', 'frined_dev' 를 train 으로 'frineds_test' 를 test set 으로 설정했습니다.   
 각 데이터셋의 경우 발화(utterance) (최대길이 = maxlen) 와 그에 해당하는 감정 라벨이 주어집니다.  
 
+## Requirements  
+numpy  
+pandas  
+scikit-learn  
+matplotlib  
+nltk  
+keras with TensorFlow backend  
+transformers (for BERT, koElectra, Electra model)  
+torch (for BER0, koElectra, Electra model)  
 
 1. 리스트1
 # 10. 코드블럭 추가하기
