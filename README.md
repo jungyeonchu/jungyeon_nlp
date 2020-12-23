@@ -105,57 +105,40 @@ torch (for BER0, koElectra, Electra model)
    #electra large로 토크나이징
    tokenizer = ElectraTokenizer.from_pretrained('google/electra-large-discriminator')
    tokenized_texts = [tokenizer.tokenize(utterance) for utterance in utterances]
+   # 어텐션 마스크 초기화
+   attention_masks = []
+   # 어텐션 마스크를 패딩이 아니면 1, 패딩이면 0으로 설정
+   for seq in input_ids:
+      seq_mask = [float(i>0) for i in seq]
+      attention_masks.append(seq_mask)
    ```
-5. t 데이터 전처리 함수 정의 
+5. test 데이터 전처리 함수 정의 
    라벨추출, bert 또는 koelectra tokenizer를 사용해 토큰으로 분리하기 위해 문장 편집  
-   어텐션 마스크 초기화 및 어텐션 마스크를 패딩이 아니면 1, 패딩이면 0으로 설정     
-5.    
-4. 정제된 문장을 bert 또는 koelectra tokenizer를 사용해 토큰으로 분리하기 위해 문장 편집   
-    앞에 [CLS] , 뒤에 [SEP] 을 달아줌. cls : classification , sep : 문장 구분 
+   어텐션 마스크 초기화 및 어텐션 마스크를 패딩이 아니면 1, 패딩이면 0으로 설정  
    
+6. labels에 train_data의 label을 저장, 학습을 위해 torch tensor 형태로 모든 데이터들을 변환
+7. GPU 이용 가능 확인(코랩 GPU 이용)  
+8. pretrained 된 모델을 model에 불러오기
    ```
-   #모델에 맞게 형식 변환  
-   sentences = ["[CLS] " + str(sentence) + " [SEP]" for sentence in clean_sentence]
-   ```
- 
-   버트 토크나이저 실행
-   
-   ```
-   #bert_base-mulmultilingual-cased 토크나이저 실행 
-   tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased', do_lower_case=False)
-   tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
-   ```
-   
-   코일렉트라 토크나이저 실행
-   
-   ```
-   # koelectra-base-v3-discriminator토크나이저 실행
-   tokenizer = AutoTokenizer.from_pretrained("monologg/koelectra-base-v3-discriminator")
-   tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
-   ```
-   
- 5. 구해진 token을 숫자 값으로 indexing 하고, maxlen을 이용해 padding 진행, 그리고 attention_masks를 설정   
- 6. 학습을 위해 torch tensor 형태로 모든 데이터들을 변환  
- 7. 4,5작업 test데이터에 동일 반복  
- 8. labels에 train data의 label을 저장  
- 9. GPU 이용 가능 확인(코랩 GPU 이용)  
- 10. pretrained 된 모델을 model에 불러오기
-   ```
-   # 분류를 위한 BERT 모델 생성
-   model = BertForSequenceClassification.from_pretrained("bert-base-multilingual-cased", num_labels=2)
+   # BERT 모델 생성
+   model = BertForSequenceClassification.from_pretrained("bert-base-multilingual-cased", num_labels=8)
    model.cuda()
    ```
    ```
-   #분류를 위한 koelectra_v3 모델 생성
-   model = ElectraForSequenceClassification.from_pretrained("monologg/koelectra-base-v3-discriminator")
+   #electra-large-generator 모델 생성
+   model = ElectraForSequenceClassification.from_pretrained('google/electra-large-generator', num_labels=8)
+   model.cuda()
+   ```
+   ```
+   #koelectra base 3 모델 생성-한국어 pretrained된 모델의 영어 적용 테스트
+   model = ElectraForSequenceClassification.from_pretrained("monologg/koelectra-base-v3-discriminator",num_labels=8)
    model.cuda()
    ```   
-11. optimizer, epoch등 하이퍼파라미터, scheduler등 설정  
-12. traing 진행  
-13. kaggle 데이터를 불러온 후 정제  
-14. kaggle 데이터 예측실행 함수 정의  
-15. kaggle 데이터 예측   
-16. kaggle 데이터 예측 결과 dataframe 생성  
+9. optimizer, epoch등 하이퍼파라미터, scheduler등 설정  
+10. traing 진행    
+11. kaggle 데이터 예측실행 함수 정의  
+12. kaggle 데이터 예측   
+13. kaggle 데이터 예측 결과 dataframe 생성  
 
 
 
