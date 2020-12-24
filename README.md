@@ -107,6 +107,7 @@ google/electra-large-generator(데이터정제 유/무)
 17. 모델별 실행한 데이터 예측 결과 csv 다운받아 엑셀에서 hard voting  
 18. hard voting 예측 데이터 업로드   
 
+## 한국어 kaggle 예측 결과 
 ![image](https://user-images.githubusercontent.com/76143729/103059379-48244d80-45e8-11eb-9847-347c949a2937.png)  
 
 ## friends  실행  
@@ -161,6 +162,7 @@ google/electra-large-generator(데이터정제 유/무)
 14. 모델별 실행한 데이터 예측 결과 csv 다운받아 엑셀에서 hard voting    
 15. hard voting 예측 데이터 업로드  
 
+## 영어 kaggle 예측 결과
 ![image](https://user-images.githubusercontent.com/76143729/103059215-ce8c5f80-45e7-11eb-99dc-cbe6e8a52c09.png)
 
 
