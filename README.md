@@ -38,6 +38,19 @@ keras with TensorFlow backend
 transformers (for BERT, koElectra, Electra model)  
 torch (for BERT, koElectra, Electra model)  
 
+## 사용 모델  
+### 네이버
+2가지 모델  
+bert-base-multilingual-cased   
+monologg/koelectra-base-v3-discriminator(데이터정제 유/무)  
+
+### Friends 
+4가지 모델 
+bert-base-multilingual-cased  
+bert-base-uncased  
+monologg/koelectra-base-v3-discriminator  
+google/electra-large-generator(데이터정제 유/무)    
+
 
 ## 실행방법
 
@@ -91,6 +104,9 @@ torch (for BERT, koElectra, Electra model)
 14. kaggle 데이터 예측실행 함수 정의  
 15. kaggle 데이터 예측   
 16. kaggle 데이터 예측 결과 dataframe 생성  
+17. 모델별 실행한 데이터 예측 결과 csv 다운받아 엑셀에서 hard voting  
+18. hard voting 예측 데이터 업로드   
+
 
 
 ## friends  실행  
@@ -142,6 +158,10 @@ torch (for BERT, koElectra, Electra model)
 11. kaggle 데이터 예측실행 함수 정의  
 12. kaggle 데이터 예측   
 13. kaggle 데이터 예측 결과 dataframe 생성  
+14. 모델별 실행한 데이터 예측 결과 csv 다운받아 엑셀에서 hard voting    
+15. hard voting 예측 데이터 업로드  
+
+
 
 
 
