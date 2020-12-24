@@ -105,10 +105,13 @@ google/electra-large-generator(데이터정제 유/무)
 14. kaggle 데이터 예측실행 함수 정의  
 15. kaggle 데이터 예측   
 16. kaggle 데이터 예측 결과 dataframe 생성  
-17. 모델별 실행한 데이터 예측 결과 csv 다운받아 엑셀에서 hard voting  
+17. 모델별 실행한 데이터 예측 결과 csv 다운받아 엑셀에서 hard voting 
+![image](https://user-images.githubusercontent.com/76143729/103060603-14e3bd80-45ec-11eb-8091-5079ef8b10c5.png)  
+
 18. hard voting 예측 데이터 업로드   
 
 ## 한국어 kaggle 예측 결과 
+
 ![image](https://user-images.githubusercontent.com/76143729/103059379-48244d80-45e8-11eb-9847-347c949a2937.png)  
 
 ## friends  실행  
@@ -160,10 +163,12 @@ google/electra-large-generator(데이터정제 유/무)
 11. kaggle 데이터 예측실행 함수 정의  
 12. kaggle 데이터 예측   
 13. kaggle 데이터 예측 결과 dataframe 생성  
-14. 모델별 실행한 데이터 예측 결과 csv 다운받아 엑셀에서 hard voting    
+14. 모델별 실행한 데이터 예측 결과 csv 다운받아 엑셀에서 hard voting   
+![image](https://user-images.githubusercontent.com/76143729/103060348-27a9c280-45eb-11eb-8a50-9b8fafefecff.png)  
 15. hard voting 예측 데이터 업로드  
 
-## 영어 kaggle 예측 결과
+## 영어 kaggle 예측 결과  
+
 ![image](https://user-images.githubusercontent.com/76143729/103059215-ce8c5f80-45e7-11eb-99dc-cbe6e8a52c09.png)
 
 
