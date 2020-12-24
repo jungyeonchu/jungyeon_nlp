@@ -93,12 +93,12 @@ torch (for BERT, koElectra, Electra model)
 16. kaggle 데이터 예측 결과 dataframe 생성  
 
 
-## friends  실행 
+## friends  실행  
 1. 필요한 package 모두 import  
 2. kaggle 연동하여 test 데이터 불러오기 
 3. friends.json데이터 불러와서 train, test 데이터는 train_data에 저장, dev 데이터는 dev_data저장 kaggle 불러온 데이터는 test_data에 저장  
 4. train 데이터 전처리 함수 정의 
-   라벨추출, bert 또는 koelectra tokenizer를 사용해 토큰으로 분리하기 위해 문장 편집  
+   라벨추출, bert 또는 Electra tokenizer를 사용해 토큰으로 분리하기 위해 문장 편집  
    어텐션 마스크 초기화 및 어텐션 마스크를 패딩이 아니면 1, 패딩이면 0으로 설정 
    ```
    #라벨추출 
