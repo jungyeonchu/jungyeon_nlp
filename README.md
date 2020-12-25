@@ -40,6 +40,7 @@ transformers (for BERT, koElectra, Electra model)
 torch (for BERT, koElectra, Electra model)  
 
 ## 사용 모델  
+다양한 모델을 확보한 뒤 voting을 통한 결과 예측을 위해 여러 case별 모델을 사용함  
 ### 네이버
 2가지 모델  
 bert-base-multilingual-cased   
