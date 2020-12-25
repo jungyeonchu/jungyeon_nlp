@@ -28,11 +28,11 @@ Freinds 대사 감정분석 모델의 경우 'frineds_train', 'frined_test' 를 
 Freinds 데이터셋의 경우 발화(utterance) (최대길이 = maxlen) 와 그에 해당하는 감정 라벨이 주어집니다.  
 
 ## Requirements  
-re
-json
-numpy  
-pandas  
-scikit-learn  
+re  
+json  
+numpy    
+pandas    
+scikit-learn    
 matplotlib  
 nltk  
 keras with TensorFlow backend  
