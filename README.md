@@ -46,7 +46,7 @@ bert-base-multilingual-cased
 monologg/koelectra-base-v3-discriminator(데이터정제 유/무)  
 
 ### Friends 
-4가지 모델 
+4가지 모델   
 bert-base-multilingual-cased  
 bert-base-uncased  
 monologg/koelectra-base-v3-discriminator  
