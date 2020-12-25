@@ -42,17 +42,17 @@ torch (for BERT, koElectra, Electra model)
 ## 사용 모델  
 다양한 모델을 확보한 뒤 voting을 통한 결과 예측을 위해 여러 case별 모델을 사용함  
 ### 네이버
-2가지 모델  
+2가지 모델   
 bert-base-multilingual-cased   
-monologg/koelectra-base-v3-discriminator(데이터정제 유/무)  
-
+monologg/koelectra-base-v3-discriminator(데이터정제 유/무)    
+로 총 3개   
 ### Friends 
 4가지 모델   
 bert-base-multilingual-cased  
 bert-base-uncased  
 monologg/koelectra-base-v3-discriminator  
-google/electra-large-generator(데이터정제 유/무)    
-
+google/electra-large-generator(데이터정제 유/무)      
+로 총 5개  
 
 ## 실행방법
 
@@ -170,7 +170,8 @@ google/electra-large-generator(데이터정제 유/무)
 
 ## 영어 kaggle 예측 결과  
 
-![image](https://user-images.githubusercontent.com/76143729/103059215-ce8c5f80-45e7-11eb-99dc-cbe6e8a52c09.png)
+![image](https://user-images.githubusercontent.com/76143729/103133943-d08e1580-46f0-11eb-81b9-17635096bf56.png)
+
 
 
 
